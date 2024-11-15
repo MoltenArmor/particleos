@@ -2,7 +2,10 @@
 # SPDX-License-Identifier: LGPL-2.1-or-later
 set -e
 
-if [ -d /etc/pam.d ]; then
-    find /etc/pam.d -mindepth 1 -exec mv {} /usr/lib/pam.d \;
-    rmdir /etc/pam.d
-fi
+# Debian does not use /usr/lib/pam.d by now.
+# if [ -d /etc/pam.d ]; then
+#     find /etc/pam.d -mindepth 1 -exec cp {} /usr/lib/pam.d \;
+#     rmdir /etc/pam.d
+# fi
+
+sed -i '/^# C.UTF-8.*/c\C.UTF-8 UTF-8' /etc/locale.gen && locale-gen
