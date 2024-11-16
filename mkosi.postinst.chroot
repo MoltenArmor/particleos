@@ -1,6 +1,6 @@
 #!/bin/sh
 # SPDX-License-Identifier: LGPL-2.1-or-later
-set -e
+set -ue
 
 # Debian does not use /usr/lib/pam.d by now.
 # if [ -d /etc/pam.d ]; then
@@ -8,4 +8,7 @@ set -e
 #     rmdir /etc/pam.d
 # fi
 
-sed -i '/^# C.UTF-8.*/c\C.UTF-8 UTF-8' /etc/locale.gen && locale-gen
+sed -i '/^# C.UTF-8.*/c\C.UTF-8 UTF-8' /etc/locale.gen && \
+sed -i '/^# en_US.UTF-8.*/c\en_US.UTF-8 UTF-8' /etc/locale.gen && \
+sed -i '/^# zh_CN.UTF-8.*/c\zh_CN.UTF-8 UTF-8' /etc/locale.gen && \
+locale-gen
