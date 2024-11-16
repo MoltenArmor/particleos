@@ -1,0 +1,2 @@
+# Disable ALL default services cuz Debian does not do so.
+disable *
