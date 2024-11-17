@@ -16,4 +16,4 @@ enable systemd-timesyncd.service
 enable systemd-homed-firstboot.service
 
 # Use iwd instead of wpasupplicant
-disable wpa_supplicant.service
+disable wpa_supplicant*.service
